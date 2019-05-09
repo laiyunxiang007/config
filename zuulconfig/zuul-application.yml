@@ -1,1 +1,33 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: eureka-zuul
+#  security:
+#    oauth2:
+#      resource:
+#        user-info-uri: http://localhost:8091/user
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8081/eureka/,http://peer2:8082/eureka/
+zuul:
+  routes:
+    client-a:
+      path: /client-a/**
+      service-id: eureka-client
+  host:
+    connect-timeout-millis: 100000
+    socket-timeout-millis: 100000
 
+ribbon:
+  ReadTimeout: 6000
+  ConnectTimeout: 6000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 8000
