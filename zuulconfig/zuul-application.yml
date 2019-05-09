@@ -14,7 +14,7 @@ eureka:
 zuul:
   routes:
     eureka-client:
-      path: /client/**
+      path: /eureka-client/**
       
   host:
     connect-timeout-millis: 100000
