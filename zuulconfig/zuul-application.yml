@@ -13,9 +13,9 @@ eureka:
       defaultZone: http://peer1:8081/eureka/,http://peer2:8082/eureka/
 zuul:
   routes:
-    client-a:
-      path: /client-a/**
-      service-id: eureka-client
+    eureka-client:
+      path: /client/**
+      
   host:
     connect-timeout-millis: 100000
     socket-timeout-millis: 100000
